@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-@export var speed = 700
+@export var speed = 400
 @onready var current_path
 
 func _ready() -> void:

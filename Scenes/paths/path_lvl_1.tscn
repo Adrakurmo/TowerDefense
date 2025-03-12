@@ -16,4 +16,4 @@ position = Vector2(15, 65)
 rotation = 0.0133325
 loop = false
 
-[node name="RedBallon_1" parent="PathFollow2D" instance=ExtResource("1_pkvx3")]
+[node name="DEBUG_RedBallon_1" parent="PathFollow2D" instance=ExtResource("1_pkvx3")]

@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6bltsny3au3g"]
+
+[ext_resource type="Texture2D" uid="uid://b8m3bxyyj8el6" path="res://Assets/testowe/tower_debuger.png" id="1_1cru6"]
+[ext_resource type="Script" uid="uid://dgiiyg0saiy1q" path="res://Scripts/Towers/debug_turret.gd" id="1_5h4kd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5h4kd"]
+size = Vector2(268, 189)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2tkxy"]
+radius = 737.082
+
+[node name="DebugTurret" type="StaticBody2D"]
+script = ExtResource("1_5h4kd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(14, -12.5)
+shape = SubResource("RectangleShape2D_5h4kd")
+
+[node name="Aim" type="Marker2D" parent="."]
+position = Vector2(126, -1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("1_1cru6")
+
+[node name="Tower_range" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tower_range"]
+shape = SubResource("CircleShape2D_2tkxy")
+
+[node name="Bullet_container" type="Node" parent="."]
+
+[connection signal="body_entered" from="Tower_range" to="." method="_on_tower_range_body_entered"]
+[connection signal="body_exited" from="Tower_range" to="." method="_on_tower_range_body_exited"]

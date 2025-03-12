@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://b37hpdrsr3yfb"]
+[gd_scene load_steps=7 format=4 uid="uid://b37hpdrsr3yfb"]
 
 [ext_resource type="Script" uid="uid://d1wewinodkm0b" path="res://Scripts/poziomy/lvl_1.gd" id="1_07ae7"]
 [ext_resource type="Texture2D" uid="uid://chvrdac4540kx" path="res://Assets/testowe/metged.png" id="1_egnc2"]
 [ext_resource type="PackedScene" uid="uid://dbsq48tesjdan" path="res://Scenes/paths/path_lvl_1.tscn" id="2_o7wnv"]
+[ext_resource type="PackedScene" uid="uid://c6bltsny3au3g" path="res://Scenes/Towers/debug_turret.tscn" id="4_hioyk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o7wnv"]
 texture = ExtResource("1_egnc2")
@@ -31,6 +32,12 @@ zoom = Vector2(0.2, 0.2)
 [node name="path_lvl_1" parent="PathSpawner" instance=ExtResource("2_o7wnv")]
 
 [node name="SpawnCooldown" type="Timer" parent="PathSpawner"]
+wait_time = 1.5
 autostart = true
+
+[node name="Towers" type="Node2D" parent="."]
+
+[node name="DebugTurret" parent="Towers" instance=ExtResource("4_hioyk")]
+position = Vector2(600, 691)
 
 [connection signal="timeout" from="PathSpawner/SpawnCooldown" to="." method="_on_spawn_cooldown_timeout"]
