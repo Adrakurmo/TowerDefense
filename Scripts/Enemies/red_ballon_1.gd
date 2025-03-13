@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var speed = 400
 @onready var current_path
-@onready var health = 20
+@onready var health = 100
 
 func _ready() -> void:
 	current_path = get_parent()

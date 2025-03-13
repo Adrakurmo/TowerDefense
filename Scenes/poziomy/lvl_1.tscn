@@ -37,9 +37,6 @@ autostart = true
 [node name="Towers" type="Node2D" parent="."]
 
 [node name="DebugTurret" parent="Towers" instance=ExtResource("4_hioyk")]
-position = Vector2(1009, 369)
-
-[node name="DebugTurret2" parent="Towers" instance=ExtResource("4_hioyk")]
-position = Vector2(1241, 1233)
+position = Vector2(1030, 619)
 
 [connection signal="timeout" from="PathSpawner/SpawnCooldown" to="." method="_on_spawn_cooldown_timeout"]

@@ -11,7 +11,7 @@ var focused_target = null
 
 # ------------------------------ PROCES ------------------------------
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if is_instance_valid(focused_target):
 		look_at(focused_target.global_position)
 		
@@ -21,8 +21,7 @@ func _on_tower_range_body_entered(body: Node2D) -> void:
 	update_current_targets(body)
 	
 func _on_tower_range_body_exited(body: Node2D) -> void:
-	if body == focused_target:
-		focused_target = null
+	focused_target = null
 	update_current_targets(body)
 
 # Przy każdym przeładowaniu obliczamy nowy cel, obserwujemy i strzelamy.
@@ -45,12 +44,14 @@ func update_current_targets(body):
 func reload_turret():
 	var bullet_inst = BULLET_TEST.instantiate()
 	bullet_container.call_deferred("add_child", bullet_inst)
-	bullet_inst.set_target(focused_target)
 	bullet_inst.global_position = aim.global_position
+	bullet_inst.rotation = rotation
 	
 func set_focused_target():
 	for e in current_targets:
-		if focused_target == null:
+		if !is_instance_valid(e):
+			continue
+		if !is_instance_valid(focused_target):
 			focused_target = e
 		else:
 			if focused_target.get_parent().get_progress() < e.get_parent().get_progress():
