@@ -32,12 +32,14 @@ zoom = Vector2(0.2, 0.2)
 [node name="path_lvl_1" parent="PathSpawner" instance=ExtResource("2_o7wnv")]
 
 [node name="SpawnCooldown" type="Timer" parent="PathSpawner"]
-wait_time = 1.5
 autostart = true
 
 [node name="Towers" type="Node2D" parent="."]
 
 [node name="DebugTurret" parent="Towers" instance=ExtResource("4_hioyk")]
-position = Vector2(600, 691)
+position = Vector2(1009, 369)
+
+[node name="DebugTurret2" parent="Towers" instance=ExtResource("4_hioyk")]
+position = Vector2(1241, 1233)
 
 [connection signal="timeout" from="PathSpawner/SpawnCooldown" to="." method="_on_spawn_cooldown_timeout"]

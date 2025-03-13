@@ -17,7 +17,7 @@ position = Vector2(14, -12.5)
 shape = SubResource("RectangleShape2D_5h4kd")
 
 [node name="Aim" type="Marker2D" parent="."]
-position = Vector2(126, -1)
+position = Vector2(159, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
@@ -31,5 +31,10 @@ shape = SubResource("CircleShape2D_2tkxy")
 
 [node name="Bullet_container" type="Node" parent="."]
 
+[node name="ReloadTime" type="Timer" parent="."]
+wait_time = 0.4
+autostart = true
+
 [connection signal="body_entered" from="Tower_range" to="." method="_on_tower_range_body_entered"]
 [connection signal="body_exited" from="Tower_range" to="." method="_on_tower_range_body_exited"]
+[connection signal="timeout" from="ReloadTime" to="." method="_on_reload_time_timeout"]
