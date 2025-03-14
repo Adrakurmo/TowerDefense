@@ -1,8 +1,10 @@
 extends CharacterBody2D
 
-@export var speed = 400
+@export var speed = 700
 @onready var current_path
 @onready var health = 100
+@onready var sprite_2d: Sprite2D = $Sprite2D
+var CONST_HEALTH = 100
 
 func _ready() -> void:
 	current_path = get_parent()
@@ -18,3 +20,5 @@ func apply_damage(dmg):
 	health -= dmg
 	if health <= 0:
 		get_parent().get_parent().queue_free()
+	var new_val : float = float(health)  / float(CONST_HEALTH)
+	sprite_2d.modulate =Color(new_val,new_val,new_val)

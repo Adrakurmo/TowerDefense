@@ -9,6 +9,9 @@ const BULLET_TEST = preload("res://Scenes/Towers/bullet_test.tscn")
 var current_targets = []
 var focused_target = null
 
+# MIDDLE NOT WORKING YET
+enum targeting_order { FIRST, LAST, MIDDLE }
+var current_order = targeting_order.FIRST
 # ------------------------------ PROCES ------------------------------
 
 func _process(_delta: float) -> void:
@@ -48,14 +51,23 @@ func reload_turret():
 	bullet_inst.rotation = rotation
 	
 func set_focused_target():
+	
 	for e in current_targets:
 		if !is_instance_valid(e):
 			continue
 		if !is_instance_valid(focused_target):
 			focused_target = e
 		else:
-			if focused_target.get_parent().get_progress() < e.get_parent().get_progress():
-				focused_target = e
+			match current_order:
+				targeting_order.LAST:
+					if focused_target.get_parent().get_progress() < e.get_parent().get_progress():
+						focused_target = e
+				targeting_order.FIRST:
+					if focused_target.get_parent().get_progress() > e.get_parent().get_progress():
+						focused_target = e
+				_:
+					print("COULDNT SET TURRET: ", self.name, " TARGET")
+					return
 # ---------------------------------------------------------------------
 # ------------------------------ /PV METODY ---------------------------
 # ---------------------------------------------------------------------

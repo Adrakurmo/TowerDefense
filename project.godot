@@ -18,3 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameManager="*res://Global/GameManager.gd"
+
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="ignore"
