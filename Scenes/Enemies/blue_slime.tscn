@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bt5i8hb5tt38b"]
+
+[ext_resource type="Script" uid="uid://bfhcooc4r0ew5" path="res://Scripts/Enemies/blue_slime.gd" id="1_i1qlu"]
+[ext_resource type="Texture2D" uid="uid://dyaaeakgrkxc0" path="res://Assets/Enemies/Slime.png" id="2_mdk41"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o7ucu"]
+radius = 132.095
+
+[node name="blue_slime" type="CharacterBody2D"]
+script = ExtResource("1_i1qlu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3.8147e-06, 7.62939e-06)
+rotation = 1.5708
+scale = Vector2(2.15694, 2.15694)
+texture = ExtResource("2_mdk41")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_o7ucu")

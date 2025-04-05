@@ -1,17 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://be1xtichv3afh"]
 
-[ext_resource type="Script" uid="uid://bi5bsekucu6ov" path="res://Scripts/Towers/bullet_test.gd" id="1_u7n0w"]
-[ext_resource type="Texture2D" uid="uid://dake64elw1lhi" path="res://Assets/testowe/bullet_test.png" id="2_kpciq"]
+[ext_resource type="Script" uid="uid://bi5bsekucu6ov" path="res://Scripts/Towers/bullet_test.gd" id="1_vwk4a"]
+[ext_resource type="Texture2D" uid="uid://dake64elw1lhi" path="res://Assets/testowe/bullet_test.png" id="2_fnw8a"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ettbr"]
 radius = 19.0
 height = 54.0
 
 [node name="bullet_test" type="Node2D"]
-script = ExtResource("1_u7n0w")
+script = ExtResource("1_vwk4a")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_kpciq")
+texture = ExtResource("2_fnw8a")
 
 [node name="Area2D" type="Area2D" parent="."]
 

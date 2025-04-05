@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+
 # NECESSARY VARIABLES
 @export var speed = 700
 @onready var current_path

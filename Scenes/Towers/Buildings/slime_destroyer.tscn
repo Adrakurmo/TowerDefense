@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://bceiohhw188xo"]
+
+[ext_resource type="Script" uid="uid://bes5ixjb5oxuy" path="res://Scripts/Towers/Buildings/slime_destroyer.gd" id="1_h7ovs"]
+[ext_resource type="Texture2D" uid="uid://bwhyn21hneycr" path="res://Assets/Turrets/TowerI.png" id="1_wo0ue"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wo0ue"]
+size = Vector2(321, 326)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h7ovs"]
+radius = 716.07
+
+[node name="Slime_destroyer" type="StaticBody2D"]
+script = ExtResource("1_h7ovs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8.5, 5)
+shape = SubResource("RectangleShape2D_wo0ue")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(3, 3)
+texture = ExtResource("1_wo0ue")
+
+[node name="Aim" type="Marker2D" parent="."]
+position = Vector2(177, 8)
+
+[node name="Tower_range" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tower_range"]
+shape = SubResource("CircleShape2D_h7ovs")
+
+[node name="Bullet_container" type="Node" parent="."]
+
+[node name="ReloadTime" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[connection signal="body_entered" from="Tower_range" to="." method="_on_tower_range_body_entered"]
+[connection signal="body_exited" from="Tower_range" to="." method="_on_tower_range_body_exited"]
+[connection signal="timeout" from="ReloadTime" to="." method="_on_reload_time_timeout"]

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://d1wewinodkm0b" path="res://Scripts/poziomy/lvl_1.gd" id="1_07ae7"]
 [ext_resource type="Texture2D" uid="uid://chvrdac4540kx" path="res://Assets/testowe/metged.png" id="1_egnc2"]
 [ext_resource type="PackedScene" uid="uid://dbsq48tesjdan" path="res://Scenes/paths/path_lvl_1.tscn" id="2_o7wnv"]
-[ext_resource type="PackedScene" uid="uid://c6bltsny3au3g" path="res://Scenes/Towers/debug_turret.tscn" id="4_hioyk"]
+[ext_resource type="PackedScene" uid="uid://bceiohhw188xo" path="res://Scenes/Towers/Buildings/slime_destroyer.tscn" id="5_jtfm1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o7wnv"]
 texture = ExtResource("1_egnc2")
@@ -37,13 +37,13 @@ autostart = true
 
 [node name="Towers" type="Node2D" parent="."]
 
-[node name="DebugTurret" parent="Towers" instance=ExtResource("4_hioyk")]
-position = Vector2(1030, 619)
+[node name="Slime_destroyer" parent="Towers" instance=ExtResource("5_jtfm1")]
+position = Vector2(449, 466)
 
-[node name="DebugTurret2" parent="Towers" instance=ExtResource("4_hioyk")]
-position = Vector2(2332, 906)
+[node name="Slime_destroyer2" parent="Towers" instance=ExtResource("5_jtfm1")]
+position = Vector2(678, 1249)
 
-[node name="DebugTurret3" parent="Towers" instance=ExtResource("4_hioyk")]
-position = Vector2(1655, 1309)
+[node name="Slime_destroyer3" parent="Towers" instance=ExtResource("5_jtfm1")]
+position = Vector2(1281, 712)
 
 [connection signal="timeout" from="PathSpawner/SpawnCooldown" to="." method="_on_spawn_cooldown_timeout"]
