@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var current_path
 @onready var health : float = 100
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var healthbar: ProgressBar = $Healthbar
 
 var CONST_HEALTH : float = 100
 
@@ -17,3 +18,4 @@ func _process(delta: float) -> void:
 
 func apply_damage(dmg):
 	health = BEB.set_health_and_apply_damage(dmg, health, CONST_HEALTH, self, sprite_2d)
+	healthbar.set_healthbar((health / CONST_HEALTH) * 100)
