@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cuibyvwtn1vv5"]
+[gd_scene load_steps=3 format=3 uid="uid://cuibyvwtn1vv5"]
 
 [ext_resource type="Script" uid="uid://bnawc5xlrihia" path="res://Scripts/main_menu.gd" id="1_28flt"]
+[ext_resource type="AudioStream" uid="uid://ctmb1cqycfeo7" path="res://Assets/Sound/niamos.mp3" id="2_48xlc"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -33,6 +34,11 @@ text = "Start
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Quit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_48xlc")
+autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
