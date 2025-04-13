@@ -8,6 +8,7 @@ const SLIME_BULLET = preload("res://Scenes/Towers/Bullets/slime_bullet.tscn")
 @onready var tower_range: Area2D = $Tower_range
 @onready var bullet_container: Node = $Bullet_container
 @onready var aim: Marker2D = $Aim
+@onready var sound: AudioStreamPlayer = $AudioStreamPlayer
 
 var current_targets = []
 var focused_target = null
@@ -30,4 +31,4 @@ func _on_reload_time_timeout() -> void:
 	if is_instance_valid(focused_target):
 		look_at(focused_target.global_position)
 		BTB.reload_turret(SLIME_BULLET, bullet_container, aim, self)
-			
+		sound.play(0)

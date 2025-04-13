@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bceiohhw188xo"]
+[gd_scene load_steps=6 format=3 uid="uid://bceiohhw188xo"]
 
 [ext_resource type="Script" uid="uid://bes5ixjb5oxuy" path="res://Scripts/Towers/Buildings/slime_destroyer.gd" id="1_h7ovs"]
 [ext_resource type="Texture2D" uid="uid://bwhyn21hneycr" path="res://Assets/Turrets/TowerI.png" id="1_wo0ue"]
+[ext_resource type="AudioStream" uid="uid://srrmdh5spw17" path="res://Assets/Sound/tower_shot.wav" id="3_hfu62"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wo0ue"]
 size = Vector2(321, 326)
@@ -34,6 +35,9 @@ shape = SubResource("CircleShape2D_h7ovs")
 [node name="ReloadTime" type="Timer" parent="."]
 wait_time = 0.2
 autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_hfu62")
 
 [connection signal="body_entered" from="Tower_range" to="." method="_on_tower_range_body_entered"]
 [connection signal="body_exited" from="Tower_range" to="." method="_on_tower_range_body_exited"]
