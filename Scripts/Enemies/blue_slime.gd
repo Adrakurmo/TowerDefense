@@ -26,12 +26,12 @@ func _process(delta: float) -> void:
 	
 	#wyliczanie pozycji Y dla paska
 	if int(self.global_rotation*100) != 0 && int(self.global_rotation*100) != 1:
-		if self.global_rotation*100 <= 90 && self.global_rotation*100 >= -90:
-			healthbar.position.y = -212 + (212/abs(int(self.global_rotation*100)))
+		if self.global_rotation*100 <= 95 && self.global_rotation*100 >= -95:
+			healthbar.position.y = -222 + (222/abs(int(self.global_rotation*100)))
 		else:
-			healthbar.position.y = 212 - (212/(180-abs(int(self.global_rotation*100))))
+			healthbar.position.y = 222 - (222/(180-abs(int(self.global_rotation*100))))
 	else:
-		healthbar.position.y = -212.0
+		healthbar.position.y = -222
 	
 	#wyliczanie pozycji X dla paska
 	if self.global_rotation*100 <= 90 && self.global_rotation*100 >= 0:
