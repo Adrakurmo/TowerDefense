@@ -1,0 +1,81 @@
+[gd_scene load_steps=10 format=3 uid="uid://djv3xidskcmkr"]
+
+[ext_resource type="Script" uid="uid://qq7qrvp0voya" path="res://Scripts/UI/ui.gd" id="1_alcrr"]
+[ext_resource type="Texture2D" uid="uid://681olmxx4jpj" path="res://Scenes/UI/MoneyBar.png" id="1_de23q"]
+[ext_resource type="Texture2D" uid="uid://30h1v2mvvkbu" path="res://Assets/UI/backButton.png" id="1_fo61o"]
+[ext_resource type="Texture2D" uid="uid://d4e2uv2mbk3ys" path="res://Scenes/UI/BuyButton.png" id="2_c7mb3"]
+[ext_resource type="Texture2D" uid="uid://cbkc185lebf6d" path="res://Assets/UI/healthBar.png" id="4_alcrr"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1c2ca"]
+texture = ExtResource("1_fo61o")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fo61o"]
+texture = ExtResource("1_de23q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_alcrr"]
+texture = ExtResource("2_c7mb3")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_duuxe"]
+texture = ExtResource("4_alcrr")
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_alcrr")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Exit" type="Button" parent="CanvasLayer"]
+custom_minimum_size = Vector2(125, 92)
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_1c2ca")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Money" type="Panel" parent="CanvasLayer/HBoxContainer"]
+custom_minimum_size = Vector2(262, 92)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_fo61o")
+
+[node name="Shop" type="Button" parent="CanvasLayer/HBoxContainer"]
+custom_minimum_size = Vector2(254, 92)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_alcrr")
+
+[node name="TMP" type="Panel" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -645.0
+offset_right = 645.0
+offset_bottom = 82.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_duuxe")
+
+[node name="buy_slimedestr" type="Button" parent="CanvasLayer"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -37.0
+offset_bottom = 37.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[connection signal="pressed" from="CanvasLayer/buy_slimedestr" to="." method="_on_buy_slimedestr_pressed"]

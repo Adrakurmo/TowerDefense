@@ -8,6 +8,8 @@ const SLIME_BULLET = preload("res://Scenes/Towers/Bullets/slime_bullet.tscn")
 @onready var tower_range: Area2D = $Tower_range
 @onready var bullet_container: Node = $Bullet_container
 @onready var aim: Marker2D = $Aim
+@onready var collision_polygon_2d: CollisionPolygon2D = $CollisionPolygon2D
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 var current_targets = []
 var focused_target = null
@@ -30,4 +32,9 @@ func _on_reload_time_timeout() -> void:
 	if is_instance_valid(focused_target):
 		look_at(focused_target.global_position)
 		BTB.reload_turret(SLIME_BULLET, bullet_container, aim, self)
-			
+	
+func get_collison_points():
+	return 	collision_polygon_2d.polygon
+	
+func get_sprite():
+	return sprite_2d.texture
