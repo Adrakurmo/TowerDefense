@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7jn1sfgpfshd"]
+
+[ext_resource type="Script" uid="uid://cjxibogef8d3u" path="res://Scripts/Towers/Bullets/flames.gd" id="1_eghss"]
+[ext_resource type="Texture2D" uid="uid://bxt67la2g1xbk" path="res://Assets/Bullets/BulletI.png" id="2_glib1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_288xn"]
+radius = 39.0128
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_eghss"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+turbulence_enabled = true
+turbulence_noise_strength = 16.0
+turbulence_noise_scale = 4.034
+turbulence_noise_speed_random = 2.95
+turbulence_influence_min = 0.15
+turbulence_influence_max = 0.15
+turbulence_initial_displacement_min = -32.0
+turbulence_initial_displacement_max = 16.0
+
+[node name="flames" type="Node2D"]
+script = ExtResource("1_eghss")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_288xn")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 50
+texture = ExtResource("2_glib1")
+lifetime = 0.2
+randomness = 0.5
+visibility_rect = Rect2(-40, -40, 80, 80)
+process_material = SubResource("ParticleProcessMaterial_eghss")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
