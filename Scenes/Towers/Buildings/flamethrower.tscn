@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://5s3yvaookl5g"]
 
 [ext_resource type="Script" uid="uid://dd0jqepf7pwik" path="res://Scripts/Towers/Buildings/flamethrower.gd" id="1_s6nni"]
-[ext_resource type="Texture2D" uid="uid://bwhyn21hneycr" path="res://Assets/Turrets/TowerI.png" id="2_wcthe"]
+[ext_resource type="Texture2D" uid="uid://esdyfgudwn0s" path="res://Assets/Towers/Tower II.png" id="2_s6nni"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s6nni"]
 radius = 170.793
@@ -18,7 +18,7 @@ shape = SubResource("CircleShape2D_s6nni")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
 scale = Vector2(3, 3)
-texture = ExtResource("2_wcthe")
+texture = ExtResource("2_s6nni")
 
 [node name="Aim1" type="Marker2D" parent="."]
 position = Vector2(171, 0)
