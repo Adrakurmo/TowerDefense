@@ -7,6 +7,8 @@ static func set_health_and_apply_damage(dmg, health : float, CONST_HEALTH : floa
 	health -= dmg
 	if health <= 0:
 		_self.get_parent().get_parent().queue_free()
+		GameManager.player_money += _self.worth
+		print(GameManager.player_money)
 	#var new_val : float = health / CONST_HEALTH
 	#sprite_2d.modulate =Color(new_val, new_val, new_val)
 	return health

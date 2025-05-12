@@ -14,5 +14,5 @@ script = ExtResource("1_pkvx3")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 position = Vector2(4.02398, 118.025)
-rotation = 0.00395938
+rotation = 0.0039564
 loop = false
