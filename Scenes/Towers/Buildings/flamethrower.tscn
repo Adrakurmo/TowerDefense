@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://5s3yvaookl5g"]
+
+[ext_resource type="Script" uid="uid://dd0jqepf7pwik" path="res://Scripts/Towers/Buildings/flamethrower.gd" id="1_s6nni"]
+[ext_resource type="Texture2D" uid="uid://esdyfgudwn0s" path="res://Assets/Towers/Tower II.png" id="2_s6nni"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s6nni"]
+radius = 170.793
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h7ovs"]
+radius = 367.005
+
+[node name="Flamethrower" type="StaticBody2D"]
+script = ExtResource("1_s6nni")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_s6nni")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(3, 3)
+texture = ExtResource("2_s6nni")
+
+[node name="Aim1" type="Marker2D" parent="."]
+position = Vector2(171, 0)
+
+[node name="Aim2" type="Marker2D" parent="."]
+position = Vector2(0, 171)
+rotation = 1.5708
+
+[node name="Aim3" type="Marker2D" parent="."]
+position = Vector2(-171, 0)
+rotation = 3.14159
+
+[node name="Aim4" type="Marker2D" parent="."]
+position = Vector2(0, -171)
+rotation = -1.5708
+
+[node name="Aim5" type="Marker2D" parent="."]
+position = Vector2(105, 133)
+rotation = 0.895354
+
+[node name="Aim6" type="Marker2D" parent="."]
+position = Vector2(-105, 133)
+rotation = 2.241
+
+[node name="Aim7" type="Marker2D" parent="."]
+position = Vector2(-105, -133)
+rotation = -2.24624
+
+[node name="Aim8" type="Marker2D" parent="."]
+position = Vector2(103, -135)
+rotation = -0.895354
+
+[node name="Tower_range" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tower_range"]
+shape = SubResource("CircleShape2D_h7ovs")
+
+[node name="Bullet_container" type="Node" parent="."]
+
+[node name="ReloadTime" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
+
+[connection signal="body_entered" from="Tower_range" to="." method="_on_tower_range_body_entered"]
+[connection signal="body_exited" from="Tower_range" to="." method="_on_tower_range_body_exited"]
+[connection signal="timeout" from="ReloadTime" to="." method="_on_reload_time_timeout"]

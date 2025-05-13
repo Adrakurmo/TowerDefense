@@ -35,9 +35,9 @@ static func get_focused_target(current_targets, focused_target, current_order):
 					return
 		return focused_target
 
-static func reload_turret(BULLET_TEST, bullet_container, aim, _self : StaticBody2D):
+static func reload_turret(BULLET_TEST, bullet_container, aim, _self : StaticBody2D, angle = 0):
 	var bullet_inst = BULLET_TEST.instantiate()
 	bullet_container.call_deferred("add_child", bullet_inst)
 	bullet_inst.global_position = aim.global_position
-	bullet_inst.rotation = _self.rotation
+	bullet_inst.rotation = _self.rotation + angle
 	

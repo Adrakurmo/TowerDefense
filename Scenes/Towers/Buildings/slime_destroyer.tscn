@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bceiohhw188xo"]
+[gd_scene load_steps=4 format=3 uid="uid://6dj4alysytkk"]
 
 [ext_resource type="Script" uid="uid://bes5ixjb5oxuy" path="res://Scripts/Towers/Buildings/slime_destroyer.gd" id="1_h7ovs"]
 [ext_resource type="Texture2D" uid="uid://bwhyn21hneycr" path="res://Assets/Turrets/TowerI.png" id="1_wo0ue"]
