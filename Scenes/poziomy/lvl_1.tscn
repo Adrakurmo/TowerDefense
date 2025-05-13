@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=4 uid="uid://b37hpdrsr3yfb"]
+[gd_scene load_steps=10 format=4 uid="uid://b37hpdrsr3yfb"]
 
 [ext_resource type="Script" uid="uid://d1wewinodkm0b" path="res://Scripts/poziomy/lvl_1.gd" id="1_07ae7"]
 [ext_resource type="Texture2D" uid="uid://chvrdac4540kx" path="res://Assets/testowe/metged.png" id="1_egnc2"]
 [ext_resource type="Texture2D" uid="uid://6l7hlyibbmu7" path="res://Assets/Map/Merged.png" id="2_jtfm1"]
 [ext_resource type="PackedScene" uid="uid://dbsq48tesjdan" path="res://Scenes/paths/path_lvl_1.tscn" id="2_o7wnv"]
 [ext_resource type="PackedScene" uid="uid://bceiohhw188xo" path="res://Scenes/Towers/Buildings/slime_destroyer.tscn" id="5_jtfm1"]
+[ext_resource type="PackedScene" uid="uid://5s3yvaookl5g" path="res://Scenes/Towers/Buildings/flamethrower.tscn" id="6_q2bea"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q2bea"]
 texture = ExtResource("2_jtfm1")
@@ -118,5 +119,8 @@ position = Vector2(678, 1249)
 
 [node name="Slime_destroyer3" parent="Towers" instance=ExtResource("5_jtfm1")]
 position = Vector2(1281, 712)
+
+[node name="Flamethrower" parent="Towers" instance=ExtResource("6_q2bea")]
+position = Vector2(2309, 1046)
 
 [connection signal="timeout" from="PathSpawner/SpawnCooldown" to="." method="_on_spawn_cooldown_timeout"]

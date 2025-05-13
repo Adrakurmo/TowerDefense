@@ -8,6 +8,10 @@ func _ready() -> void:
 	damagebar.value = 100
 	healthbar.value = 100
 
+func _process(delta: float) -> void:
+	self.healthbar.global_position = get_parent().get_parent().global_position + Vector2(-135, -212)
+	self.rotation = -get_parent().get_parent().rotation
+
 func set_healthbar(new_value):
 	healthbar.value = new_value
 	combo.start()
