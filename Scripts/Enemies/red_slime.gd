@@ -1,17 +1,8 @@
-extends CharacterBody2D
-
-
-# NECESSARY VARIABLES
-@export var speed = 700
-@onready var current_path
-@onready var health : float = 100
-@onready var sprite_2d: Sprite2D = $Sprite2D
-@onready var healthbar: ProgressBar = $Healthbar
-
-var CONST_HEALTH : float = 100
+extends "res://Scripts/Enemies/blue_slime.gd"
 
 func _ready() -> void:
 	current_path = get_parent()
+	worth = 40
 
 func _process(delta: float) -> void:
 	BEB.set_route_progress(current_path, speed, delta, self)

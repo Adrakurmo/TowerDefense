@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://ddi0e7x2xu8mq" path="res://Scripts/Enemies/red_slime.gd" id="2_23pjn"]
 [ext_resource type="Texture2D" uid="uid://bams5qwulel2t" path="res://Assets/Enemies/red_Slime.png" id="2_pdhnh"]
 
-[node name="blue_slime" instance=ExtResource("1_jn03h")]
+[node name="red_slime" instance=ExtResource("1_jn03h")]
 script = ExtResource("2_23pjn")
 
 [node name="Sprite2D" parent="." index="1"]

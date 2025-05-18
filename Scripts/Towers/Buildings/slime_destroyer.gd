@@ -10,11 +10,12 @@ const SLIME_BULLET = preload("res://Scenes/Towers/Bullets/slime_bullet.tscn")
 @onready var aim: Marker2D = $Aim
 @onready var collision_polygon_2d: CollisionPolygon2D = $CollisionPolygon2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var asp: AudioStreamPlayer = $AudioStreamPlayer
 
 var current_targets = []
 var focused_target = null
 var current_order = GameManager.targeting_order.FIRST
-
+var my_audio = ResourceLoader.load("res://Assets/Sound/towerI_shot.mp3")
 
 # NECESSARY METHODS!!!
 func _process(_delta: float) -> void:
@@ -31,6 +32,8 @@ func _on_reload_time_timeout() -> void:
 	focused_target = BTB.get_focused_target(current_targets, focused_target, current_order)
 	if is_instance_valid(focused_target):
 		look_at(focused_target.global_position)
+		if !asp.playing:
+			asp.play()
 		BTB.reload_turret(SLIME_BULLET, bullet_container, aim, self)
 	
 func get_collison_points():

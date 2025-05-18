@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://o5fanda084qe"]
 
-[ext_resource type="Script" path="res://Scripts/Towers/Buildings/ghost_tower.gd" id="1_djcal"]
+[ext_resource type="Script" uid="uid://dtlby3wb5eo8l" path="res://Scripts/Towers/Buildings/ghost_tower.gd" id="1_djcal"]
 
 [node name="ghost_tower" type="Sprite2D"]
 script = ExtResource("1_djcal")
