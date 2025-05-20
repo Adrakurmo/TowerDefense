@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://csejd67hggkxi"]
+
+[ext_resource type="PackedScene" uid="uid://bt5i8hb5tt38b" path="res://Scenes/Enemies/blue_slime.tscn" id="1_4l0np"]
+[ext_resource type="Texture2D" uid="uid://d0h7lo1iq07mn" path="res://Assets/Enemies/Crab.png" id="2_mbujr"]
+[ext_resource type="Script" uid="uid://cv8dd2evfo4sm" path="res://Scripts/Enemies/crab.gd" id="2_usnq2"]
+
+[node name="crab" instance=ExtResource("1_4l0np")]
+script = ExtResource("2_usnq2")
+
+[node name="Healthbar" parent="." index="0"]
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_mbujr")

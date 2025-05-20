@@ -5,6 +5,7 @@ const BLUE_SLIME = preload("res://Scenes/Enemies/blue_slime.tscn")
 const RED_SLIME = preload("res://Scenes/Enemies/red_slime.tscn")
 
 var red_one = 1;
+
 func _on_spawn_cooldown_timeout() -> void:
 	var path_inst = PATH_LVL_1.instantiate()
 	add_child(path_inst)
