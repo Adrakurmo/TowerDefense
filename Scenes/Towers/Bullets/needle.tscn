@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://mklk5i3gojks"]
+
+[ext_resource type="Script" uid="uid://dn46nscyps75v" path="res://Scripts/Towers/Bullets/needle.gd" id="1_rv78t"]
+[ext_resource type="Texture2D" uid="uid://bxt67la2g1xbk" path="res://Assets/Bullets/BulletI.png" id="2_nm51u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_288xn"]
+radius = 63.0714
+
+[node name="slime_bullet" type="Node2D"]
+script = ExtResource("1_rv78t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("2_nm51u")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_288xn")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

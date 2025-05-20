@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://chjnc534chb7t"]
+
+[ext_resource type="Script" uid="uid://dppi4juya2f7s" path="res://Scripts/Towers/Buildings/rose.gd" id="1_t1mje"]
+[ext_resource type="Texture2D" uid="uid://un81noepspdi" path="res://Assets/Towers/TowerIII.png" id="2_t1mje"]
+[ext_resource type="AudioStream" uid="uid://dwoqux7cvyjrj" path="res://Assets/Sound/towerI_shot.mp3" id="3_2futb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h7ovs"]
+radius = 570.317
+
+[node name="Rose" type="StaticBody2D"]
+script = ExtResource("1_t1mje")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-96, -129, -8, -140, 87, -131, 126, -96, 134, -51, 134, 1, 129, 61, 104, 116, 57, 152, -48, 146, -107, 104, -134, 60, -138, -14, -129, -87)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(3, 3)
+texture = ExtResource("2_t1mje")
+
+[node name="Aim" type="Marker2D" parent="."]
+position = Vector2(177, 8)
+
+[node name="Tower_range" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tower_range"]
+shape = SubResource("CircleShape2D_h7ovs")
+
+[node name="Bullet_container" type="Node" parent="."]
+
+[node name="ReloadTime" type="Timer" parent="."]
+wait_time = 0.125
+autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_2futb")
+
+[connection signal="body_entered" from="Tower_range" to="." method="_on_tower_range_body_entered"]
+[connection signal="body_exited" from="Tower_range" to="." method="_on_tower_range_body_exited"]
+[connection signal="timeout" from="ReloadTime" to="." method="_on_reload_time_timeout"]

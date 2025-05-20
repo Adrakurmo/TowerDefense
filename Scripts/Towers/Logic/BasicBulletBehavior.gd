@@ -15,3 +15,9 @@ static func if_valid_apply_damage(body : Node2D, bulletDamage, _self : Node2D):
 static func free_if_out_of_screen(_self : Node2D) -> void:
 	print("Grug threw it")
 	_self.queue_free()
+
+static func if_valid_apply_slowness(body : Node2D, bulletSlowdown, slowdownDuration, _self : Node2D):
+	if GameManager.ENEMY_PREFIX in body.name:
+		if body.has_method("apply_slowness"):
+			body.apply_slowness(bulletSlowdown, slowdownDuration)
+		_self.queue_free()
