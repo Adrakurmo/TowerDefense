@@ -8,3 +8,8 @@ script = ExtResource("1_djcal")
 [node name="interaction_area" type="Area2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="build_cd" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+autostart = true

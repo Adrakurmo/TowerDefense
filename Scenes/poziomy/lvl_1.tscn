@@ -15,7 +15,7 @@ texture = ExtResource("2_q2bea")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(2706, 1309)
-zoom = Vector2(0.35, 0.35)
+zoom = Vector2(0.21, 0.21)
 
 [node name="PathSpawner" type="Node2D" parent="."]
 
@@ -37,5 +37,9 @@ autostart = true
 polygon = PackedVector2Array(-33, -78, -34, 399, 295, 287, 519, 436, 515, 825, 790, 1194, 1085, 1329, 1879, 1134, 2204, 994, 2377, 1063, 2454, 1357, 2596, 2086, 2857, 2371, 3253, 2465, 3449, 2413, 3868, 2379, 4235, 2085, 4588, 2075, 4809, 2273, 5053, 2508, 5282, 2672, 5442, 2677, 5450, 2173, 5347, 2210, 5182, 2128, 5013, 1859, 4677, 1725, 4337, 1684, 4105, 1721, 3921, 1796, 3792, 1869, 3657, 1932, 3477, 1994, 3245, 2009, 3044, 1932, 2953, 1809, 2932, 1632, 2923, 1392, 2915, 1175, 2911, 994, 2839, 886, 2755, 672, 2549, 555, 2366, 493, 2148, 571, 1741, 683, 1538, 754, 1290, 822, 1108, 822, 998, 695, 964, 516, 980, 302, 874, 139, 720, -41, 504, -114, 228, -103)
 
 [node name="Ghosts" type="Node" parent="."]
+
+[node name="wave_CD" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
 
 [connection signal="timeout" from="PathSpawner/SpawnCooldown" to="." method="_on_spawn_cooldown_timeout"]

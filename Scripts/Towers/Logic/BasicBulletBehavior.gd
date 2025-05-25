@@ -7,7 +7,7 @@ static func basic_bullet_movement(_self : Node2D, delta: float, speed : float):
 	_self.position += _self.transform.x * speed * delta
 	
 static func if_valid_apply_damage(body : Node2D, bulletDamage, _self : Node2D):
-	if GameManager.ENEMY_PREFIX in body.name:
+	if body.is_in_group("w_enemy"):
 		if body.has_method("apply_damage"):
 			body.apply_damage(bulletDamage)
 		_self.queue_free()

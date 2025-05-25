@@ -4,6 +4,8 @@ extends StaticBody2D
 @onready var aim: Marker2D = $Aim
 @onready var reload_time: Timer = $ReloadTime
 
+@export var cost : int  = 1
+
 const BULLET_TEST = preload("res://Scenes/Towers/Bullets/bullet_test.tscn")
 
 var current_targets = []
@@ -39,11 +41,11 @@ func _on_reload_time_timeout() -> void:
 			
 func update_current_targets(body):
 	current_targets.clear()
-	if GameManager.ENEMY_PREFIX in body.name:
+	if body.is_in_group("w_enemy"):
 		var tmp_arr = get_node("Tower_range").get_overlapping_bodies()
 	
 		for e in tmp_arr:
-			if GameManager.ENEMY_PREFIX in e.name:
+			if body.is_in_group("w_enemy"):
 				current_targets.append(e)	
 
 func reload_turret():

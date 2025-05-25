@@ -1,19 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://5s3yvaookl5g"]
+[gd_scene load_steps=5 format=3 uid="uid://cfu6umomqcj0t"]
 
 [ext_resource type="Script" uid="uid://dd0jqepf7pwik" path="res://Scripts/Towers/Buildings/flamethrower.gd" id="1_s6nni"]
 [ext_resource type="Texture2D" uid="uid://esdyfgudwn0s" path="res://Assets/Towers/Tower II.png" id="2_s6nni"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_s6nni"]
-radius = 170.793
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_h7ovs"]
 radius = 367.005
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s6nni"]
+size = Vector2(312, 331)
 
 [node name="Flamethrower" type="StaticBody2D"]
 script = ExtResource("1_s6nni")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_s6nni")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-67, -118, 43, -125, 138, -61, 153, 18, 118, 116, 43, 149, -70, 136, -126, 84, -156, -22, -124, -81)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
@@ -62,6 +62,12 @@ shape = SubResource("CircleShape2D_h7ovs")
 wait_time = 0.05
 autostart = true
 
+[node name="tower_menu_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tower_menu_area"]
+shape = SubResource("RectangleShape2D_s6nni")
+
 [connection signal="body_entered" from="Tower_range" to="." method="_on_tower_range_body_entered"]
 [connection signal="body_exited" from="Tower_range" to="." method="_on_tower_range_body_exited"]
 [connection signal="timeout" from="ReloadTime" to="." method="_on_reload_time_timeout"]
+[connection signal="input_event" from="tower_menu_area" to="." method="_on_tower_menu_area_input_event"]

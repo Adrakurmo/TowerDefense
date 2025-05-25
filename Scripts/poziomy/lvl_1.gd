@@ -1,21 +1,29 @@
 extends Node2D
 
-const PATH_LVL_1 = preload("res://Scenes/paths/path_lvl_1.tscn")
-const BLUE_SLIME = preload("res://Scenes/Enemies/blue_slime.tscn")
-const RED_SLIME = preload("res://Scenes/Enemies/red_slime.tscn")
+@onready var wave_cd: Timer = $wave_CD
 
-var red_one = 1;
+@export var current_wave : int = -1
 
 func _on_spawn_cooldown_timeout() -> void:
-	var path_inst = PATH_LVL_1.instantiate()
+	if !wave_cd.is_stopped():
+		return
+		
+	var path_inst = LevelManager.PATH_LVL_1.instantiate()
 	add_child(path_inst)
-	if (red_one % 3 == 0):
-		path_inst.add_enemy_on_path(RED_SLIME)
-		red_one = 0
-	else:
-		path_inst.add_enemy_on_path(BLUE_SLIME)
-	red_one+=1
 	
-#func _process(delta: float) -> void:
-	#if Input.is_action_just_pressed("ui_cancel"):
-		#get_tree().paused = not get_tree().paused
+	for i in range(LevelManager.level_1.waves.size()):
+		var wave = LevelManager.level_1.waves[i]
+		for key : PackedScene in wave.enemies.keys():
+			if wave.enemies[key] <= 0:
+				continue
+			path_inst.add_enemy_on_path(key)
+			wave.enemies[key] -= 1
+			return
+		if i > current_wave:
+			current_wave = i
+			wave_cd.start()
+			return
+			
+	
+
+	
