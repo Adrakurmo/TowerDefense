@@ -3,6 +3,8 @@ extends CharacterBody2D
 
 # NECESSARY VARIABLES
 @export var speed = 700
+@export var worth = 40
+
 @onready var current_path
 @onready var health : float = 100
 @onready var sprite_2d: Sprite2D = $Sprite2D

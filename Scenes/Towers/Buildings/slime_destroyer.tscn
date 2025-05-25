@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://6dj4alysytkk"]
+[gd_scene load_steps=5 format=3 uid="uid://6dj4alysytkk"]
 
 [ext_resource type="Script" uid="uid://bes5ixjb5oxuy" path="res://Scripts/Towers/Buildings/slime_destroyer.gd" id="1_h7ovs"]
 [ext_resource type="Texture2D" uid="uid://bwhyn21hneycr" path="res://Assets/Turrets/TowerI.png" id="1_wo0ue"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h7ovs"]
 radius = 716.07
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h7ovs"]
+size = Vector2(372, 387)
 
 [node name="Slime_destroyer" type="StaticBody2D"]
 script = ExtResource("1_h7ovs")
@@ -31,6 +34,12 @@ shape = SubResource("CircleShape2D_h7ovs")
 wait_time = 0.2
 autostart = true
 
+[node name="tower_menu_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tower_menu_area"]
+shape = SubResource("RectangleShape2D_h7ovs")
+
 [connection signal="body_entered" from="Tower_range" to="." method="_on_tower_range_body_entered"]
 [connection signal="body_exited" from="Tower_range" to="." method="_on_tower_range_body_exited"]
 [connection signal="timeout" from="ReloadTime" to="." method="_on_reload_time_timeout"]
+[connection signal="input_event" from="tower_menu_area" to="." method="_on_tower_menu_area_input_event"]

@@ -9,11 +9,12 @@ static func if_valid_look_at_target(_self : StaticBody2D, focused_target):
 
 static func update_current_targets(current_targets, tower_range: Area2D,  body):
 	current_targets.clear()
-	if GameManager.ENEMY_PREFIX in body.name:
+
+	if body.is_in_group("w_enemy"):
 		var tmp_arr = tower_range.get_overlapping_bodies()
 	
 		for e in tmp_arr:
-			if GameManager.ENEMY_PREFIX in e.name:
+			if e.is_in_group("w_enemy"):
 				current_targets.append(e)
 
 static func get_focused_target(current_targets, focused_target, current_order):

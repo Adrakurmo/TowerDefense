@@ -7,7 +7,8 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_o7ucu"]
 radius = 132.095
 
-[node name="blue_slime" type="CharacterBody2D"]
+[node name="blue_slime" type="CharacterBody2D" groups=["w_enemy"]]
+collision_mask = 0
 script = ExtResource("1_i1qlu")
 
 [node name="Healthbar" parent="." instance=ExtResource("2_ojb6y")]

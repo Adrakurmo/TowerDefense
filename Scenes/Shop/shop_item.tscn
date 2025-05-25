@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://brbmxlxjfm40b"]
+
+[ext_resource type="Script" uid="uid://c67tdpcxaj8ga" path="res://Scripts/Shop/shop_item.gd" id="1_oeg7r"]
+
+[node name="shop_item" type="VBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_oeg7r")
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(125, 125)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "PRICE"
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
