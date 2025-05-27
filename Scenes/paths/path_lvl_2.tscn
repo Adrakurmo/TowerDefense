@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcdh4kdyscge1"]
+
+[ext_resource type="Script" uid="uid://g1fla0gstwci" path="res://Scripts/paths/path_lvl_2.gd" id="1_1y5w1"]
+
+[sub_resource type="Curve2D" id="Curve2D_umjuj"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -14, 1760, 0, 0, 0, 0, 770, 1856, 0, 0, 0, 0, 1407, 1885, 0, 0, 0, 0, 2132, 1841, 0, 0, 0, 0, 2887, 1900, 0, 0, 0, 0, 3198, 1449, 0, 0, 0, 0, 3035, 916, 0, 0, 0, 0, 2850, 531, 0, 0, 0, 0, 2273, 309, 0, 0, 0, 0, 1829, 272, 0, 0, 0, 0, 1688, 716, 0, 0, 0, 0, 1607, 1286, 0, 0, 0, 0, 2206, 1560, 0, 0, 0, 0, 2739, 1560, 0, 0, 0, 0, 3368, 1308, 0, 0, 0, 0, 3368, 946, 0, 0, 0, 0, 3375, 546, 0, 0, 0, 0, 3701, 546, 0, 0, 0, 0, 4359, 524, 0, 0, 0, 0, 4922, 516, 0, 0, 0, 0, 5425, 546)
+}
+point_count = 21
+
+[node name="path_lvl_2" type="Path2D"]
+curve = SubResource("Curve2D_umjuj")
+script = ExtResource("1_1y5w1")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(-14, 1760)
+rotation = 0.121842
+loop = false

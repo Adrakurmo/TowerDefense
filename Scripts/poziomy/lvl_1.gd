@@ -4,10 +4,24 @@ extends Node2D
 
 @export var current_wave : int = -1
 
+var win = false
+
 func _on_spawn_cooldown_timeout() -> void:
 	if !wave_cd.is_stopped():
 		return
 		
+	if GameManager.player_health <= 0:
+		SignalManager.level_finished.emit()
+		return
+	#print(LevelManager.level_1.waves.size())
+	if LevelManager.level_1.waves.size() <= current_wave + 1 && GameManager.player_health > 0:
+		win = true
+		
+	if win:
+		SignalManager.level_finished.emit()
+		SignalManager.level_2_unlocked.emit()
+		return
+	
 	var path_inst = LevelManager.PATH_LVL_1.instantiate()
 	add_child(path_inst)
 	

@@ -26,7 +26,19 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="l1" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "level 1
+"
+
+[node name="l2" type="Button" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "level 2
+"
+
 [node name="Start" type="Button" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Start
 "
@@ -40,5 +52,7 @@ stream = ExtResource("2_48xlc")
 autoplay = true
 parameters/looping = true
 
+[connection signal="pressed" from="VBoxContainer/l1" to="." method="_on_l_1_pressed"]
+[connection signal="pressed" from="VBoxContainer/l2" to="." method="_on_l_2_pressed"]
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

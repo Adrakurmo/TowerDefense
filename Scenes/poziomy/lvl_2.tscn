@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://ihwoeb6qjtv2"]
+
+[ext_resource type="Texture2D" uid="uid://coadrvsb0egba" path="res://Assets/Map/Mapv2.png" id="1_2w30m"]
+[ext_resource type="Script" uid="uid://bkysopou1to27" path="res://Scripts/poziomy/lvl_2.gd" id="1_46vx3"]
+[ext_resource type="PackedScene" uid="uid://dcdh4kdyscge1" path="res://Scenes/paths/path_lvl_2.tscn" id="2_trs4n"]
+[ext_resource type="PackedScene" uid="uid://djv3xidskcmkr" path="res://Scenes/UI/ui.tscn" id="3_6n8l6"]
+
+[node name="lvl_2" type="Node2D"]
+script = ExtResource("1_46vx3")
+
+[node name="map" type="Sprite2D" parent="."]
+position = Vector2(2708.28, 1308.75)
+scale = Vector2(2.85596, 2.85602)
+texture = ExtResource("1_2w30m")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(2706, 1309)
+zoom = Vector2(0.35, 0.35)
+
+[node name="PathSpawner" type="Node2D" parent="."]
+
+[node name="path_lvl_2" parent="PathSpawner" instance=ExtResource("2_trs4n")]
+
+[node name="SpawnCooldown" type="Timer" parent="PathSpawner"]
+wait_time = 0.5
+autostart = true
+
+[node name="Towers" type="Node2D" parent="."]
+
+[node name="UI" parent="." instance=ExtResource("3_6n8l6")]
+
+[node name="cannot_build" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="cannot_build"]
+polygon = PackedVector2Array(-24, 1321, -49, 2086, 3658, 2104, 3688, 911, 5431, 930, 5419, 171, 2894, 144, 2932, 1355, 2109, 1342, 2098, 917, 2888, 909, 2874, 124, 1340, 135, 1352, 1315)
+
+[node name="Ghosts" type="Node" parent="."]
+
+[node name="wave_CD" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="PathSpawner/SpawnCooldown" to="." method="_on_spawn_cooldown_timeout"]

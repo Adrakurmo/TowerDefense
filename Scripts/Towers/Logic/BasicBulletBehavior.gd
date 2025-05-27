@@ -17,7 +17,7 @@ static func free_if_out_of_screen(_self : Node2D) -> void:
 	_self.queue_free()
 
 static func if_valid_apply_slowness(body : Node2D, bulletSlowdown, slowdownDuration, _self : Node2D):
-	if GameManager.ENEMY_PREFIX in body.name:
+	if body.is_in_group("w_enemy"):
 		if body.has_method("apply_slowness"):
 			body.apply_slowness(bulletSlowdown, slowdownDuration)
 		_self.queue_free()

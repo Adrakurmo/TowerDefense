@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://djv3xidskcmkr"]
+[gd_scene load_steps=8 format=3 uid="uid://djv3xidskcmkr"]
 
 [ext_resource type="Script" uid="uid://qq7qrvp0voya" path="res://Scripts/UI/ui.gd" id="1_alcrr"]
 [ext_resource type="Texture2D" uid="uid://681olmxx4jpj" path="res://Scenes/UI/MoneyBar.png" id="1_de23q"]
 [ext_resource type="Texture2D" uid="uid://30h1v2mvvkbu" path="res://Assets/UI/backButton.png" id="1_fo61o"]
+[ext_resource type="Texture2D" uid="uid://c42f0xwi3kin7" path="res://Assets/UI/heart_17148495.png" id="2_alcrr"]
+[ext_resource type="Texture2D" uid="uid://bj5ewyvjo42bc" path="res://Assets/UI/BuyButton.png" id="4_fo61o"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1c2ca"]
 texture = ExtResource("1_fo61o")
@@ -21,29 +23,26 @@ script = ExtResource("1_alcrr")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="Heart17148495" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(1796, 117)
+scale = Vector2(0.499024, 0.499024)
+texture = ExtResource("2_alcrr")
+
 [node name="Exit" type="Button" parent="CanvasLayer"]
 custom_minimum_size = Vector2(125, 92)
 offset_right = 8.0
 offset_bottom = 8.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_1c2ca")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -40.0
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="Money" type="Panel" parent="CanvasLayer/HBoxContainer"]
+[node name="Money" type="Panel" parent="CanvasLayer"]
 custom_minimum_size = Vector2(262, 92)
-layout_mode = 2
+offset_left = 1297.0
+offset_top = 961.0
+offset_right = 1559.0
+offset_bottom = 1053.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_fo61o")
 
-[node name="money_label" type="Label" parent="CanvasLayer/HBoxContainer/Money"]
+[node name="money_label" type="Label" parent="CanvasLayer/Money"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -60,6 +59,7 @@ theme_override_font_sizes/font_size = 50
 text = "123"
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
+self_modulate = Color(1, 1, 1, 0)
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -91,11 +91,13 @@ grow_vertical = 2
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -273.0
-offset_bottom = 69.0
+offset_left = -203.0
+offset_top = 57.0
+offset_right = -111.0
+offset_bottom = 126.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 50
-text = "Health: 123"
+text = "123"
 
 [node name="upgrade_view" type="Panel" parent="CanvasLayer"]
 visible = false
@@ -158,7 +160,28 @@ grow_vertical = 0
 text = "close
 "
 
+[node name="shoppp" type="Button" parent="CanvasLayer"]
+offset_left = 1631.0
+offset_top = 915.0
+offset_right = 1852.0
+offset_bottom = 1042.0
+
+[node name="BuyButton" type="Sprite2D" parent="CanvasLayer/shoppp"]
+position = Vector2(106, 65)
+texture = ExtResource("4_fo61o")
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+visible = false
+offset_left = 755.0
+offset_top = 372.0
+offset_right = 1197.0
+offset_bottom = 609.0
+text = "BACK TO MENU"
+
+[connection signal="pressed" from="CanvasLayer/Exit" to="." method="_on_exit_pressed"]
 [connection signal="button_down" from="CanvasLayer/upgrade_view/main_vbox/VBoxContainer/speed" to="." method="_on_speed_button_down"]
 [connection signal="button_down" from="CanvasLayer/upgrade_view/main_vbox/VBoxContainer/dmg" to="." method="_on_dmg_button_down"]
 [connection signal="button_down" from="CanvasLayer/upgrade_view/main_vbox/VBoxContainer/range" to="." method="_on_range_button_down"]
 [connection signal="button_down" from="CanvasLayer/upgrade_view/close" to="." method="_on_close_button_down"]
+[connection signal="pressed" from="CanvasLayer/shoppp" to="." method="_on_shoppp_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

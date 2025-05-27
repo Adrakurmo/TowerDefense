@@ -15,3 +15,6 @@ func change_health(value : int) -> void:
 	SignalManager.health_changed.emit()
 	#if player_health == 0:
 		#get_tree().paused = true
+		
+func _ready() -> void:
+	Engine.max_fps = 200

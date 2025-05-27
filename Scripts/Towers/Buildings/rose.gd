@@ -11,6 +11,10 @@ const NEEDLE = preload("res://Scenes/Towers/Bullets/needle.tscn")
 @onready var collision_polygon_2d: CollisionPolygon2D = $CollisionPolygon2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var asp: AudioStreamPlayer = $AudioStreamPlayer
+@onready var reload_time: Timer = $ReloadTime
+
+@export var cost : int  = -180
+@export var reaload_time_ : float = 0.05
 
 var current_targets = []
 var focused_target = null
@@ -35,6 +39,9 @@ func _on_reload_time_timeout() -> void:
 		if !asp.playing:
 			asp.play()
 		BTB.reload_turret(NEEDLE, bullet_container, aim, self)
+	
+func speed_up_turret():
+	reload_time.wait_time = reload_time.wait_time * 0.8
 	
 func get_collison_points():
 	return 	collision_polygon_2d.polygon
