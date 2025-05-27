@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b7jn1sfgpfshd"]
 
 [ext_resource type="Script" uid="uid://cjxibogef8d3u" path="res://Scripts/Towers/Bullets/flames.gd" id="1_eghss"]
-[ext_resource type="Texture2D" uid="uid://bxt67la2g1xbk" path="res://Assets/Bullets/BulletI.png" id="2_glib1"]
+[ext_resource type="Texture2D" uid="uid://baskphp013xwj" path="res://Assets/Bullets/BulletHiacynt.png" id="2_eghss"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_288xn"]
 radius = 39.0128
@@ -9,11 +9,11 @@ radius = 39.0128
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_eghss"]
 particle_flag_disable_z = true
 gravity = Vector3(0, 98, 0)
-color = Color(0.823529, 0.352941, 1, 1)
+color = Color(0.917647, 0.772549, 0.929412, 1)
 turbulence_enabled = true
-turbulence_noise_strength = 16.0
+turbulence_noise_strength = 6.09
 turbulence_noise_scale = 4.034
-turbulence_noise_speed_random = 2.95
+turbulence_noise_speed_random = 1.05
 turbulence_influence_min = 0.15
 turbulence_influence_max = 0.15
 turbulence_initial_displacement_min = -32.0
@@ -31,7 +31,7 @@ shape = SubResource("CircleShape2D_288xn")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 amount = 50
-texture = ExtResource("2_glib1")
+texture = ExtResource("2_eghss")
 lifetime = 0.2
 randomness = 0.5
 visibility_rect = Rect2(-40, -40, 80, 80)

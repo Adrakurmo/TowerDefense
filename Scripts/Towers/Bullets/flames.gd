@@ -1,7 +1,7 @@
 extends Node2D
 
 var speed = 500
-var bulletDamage = 1
+var bulletDamage = 2
 
 
 func _process(delta: float) -> void:
