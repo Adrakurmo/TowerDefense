@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://mklk5i3gojks"]
 
 [ext_resource type="Script" uid="uid://dn46nscyps75v" path="res://Scripts/Towers/Bullets/needle.gd" id="1_rv78t"]
-[ext_resource type="Texture2D" uid="uid://bxt67la2g1xbk" path="res://Assets/Bullets/BulletI.png" id="2_nm51u"]
+[ext_resource type="Texture2D" uid="uid://b3amp4lpia8h4" path="res://Assets/Bullets/BulletRose.png" id="2_rv78t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_288xn"]
 radius = 63.0714
@@ -10,8 +10,10 @@ radius = 63.0714
 script = ExtResource("1_rv78t")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3.8147e-06, 7.62939e-06)
 rotation = 1.5708
-texture = ExtResource("2_nm51u")
+scale = Vector2(1.49674, 1.49673)
+texture = ExtResource("2_rv78t")
 
 [node name="Area2D" type="Area2D" parent="."]
 
