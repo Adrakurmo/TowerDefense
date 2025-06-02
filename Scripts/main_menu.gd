@@ -2,16 +2,16 @@ extends Control
 
 @onready var l_2: Button = $VBoxContainer/l2
 
-
 func _ready() -> void:
-	SignalManager.level_2_unlocked.connect(unlock_second_lvl)
+	SignalManager.new_level_unlocked.connect(check_new_levels)
+	check_new_levels()
+
+func check_new_levels() -> void:
+	if LevelManager.level_2_unlocked: l_2.visible = true
 
 func reset_stats():
 	GameManager.player_money = 300
 	GameManager.player_health = 10
-
-func unlock_second_lvl() -> void:
-	l_2.visible = true
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()

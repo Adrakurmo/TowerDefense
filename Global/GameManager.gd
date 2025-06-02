@@ -13,8 +13,8 @@ func update_money(value : int) -> void:
 func change_health(value : int) -> void:
 	player_health += value
 	SignalManager.health_changed.emit()
-	#if player_health == 0:
-		#get_tree().paused = true
+	if player_health <= 0:
+		SignalManager.level_finished.emit()
 		
 func _ready() -> void:
 	Engine.max_fps = 200

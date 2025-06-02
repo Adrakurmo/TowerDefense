@@ -8,38 +8,46 @@
 [node name="lvl_1" type="Node2D"]
 script = ExtResource("1_07ae7")
 
-[node name="map" type="Sprite2D" parent="."]
-position = Vector2(2708.28, 1308.75)
+[node name="game_view" type="Node2D" parent="."]
+position = Vector2(0, -1)
+
+[node name="map" type="Sprite2D" parent="game_view"]
+position = Vector2(2708.28, 1309.75)
 scale = Vector2(2.85596, 2.85602)
 texture = ExtResource("2_q2bea")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(2706, 1309)
+[node name="Camera2D" type="Camera2D" parent="game_view"]
+position = Vector2(2706, 1310)
 zoom = Vector2(0.35, 0.35)
 
-[node name="PathSpawner" type="Node2D" parent="."]
+[node name="PathSpawner" type="Node2D" parent="game_view"]
+position = Vector2(0, 1)
 
-[node name="path_lvl_1" parent="PathSpawner" instance=ExtResource("2_o7wnv")]
+[node name="path_lvl_1" parent="game_view/PathSpawner" instance=ExtResource("2_o7wnv")]
 position = Vector2(-0.0327682, -0.975002)
 scale = Vector2(1.00218, 1.01653)
 
-[node name="SpawnCooldown" type="Timer" parent="PathSpawner"]
-wait_time = 0.5
+[node name="SpawnCooldown" type="Timer" parent="game_view/PathSpawner"]
+wait_time = 0.1
 autostart = true
 
-[node name="Towers" type="Node2D" parent="."]
+[node name="Towers" type="Node2D" parent="game_view"]
+position = Vector2(0, 1)
 
-[node name="UI" parent="." instance=ExtResource("7_2soho")]
+[node name="cannot_build" type="Area2D" parent="game_view"]
+position = Vector2(0, 1)
 
-[node name="cannot_build" type="Area2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="cannot_build"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="game_view/cannot_build"]
 polygon = PackedVector2Array(-33, -78, -34, 399, 295, 287, 519, 436, 515, 825, 790, 1194, 1085, 1329, 1879, 1134, 2204, 994, 2377, 1063, 2454, 1357, 2596, 2086, 2857, 2371, 3253, 2465, 3449, 2413, 3868, 2379, 4235, 2085, 4588, 2075, 4809, 2273, 5053, 2508, 5282, 2672, 5442, 2677, 5450, 2173, 5347, 2210, 5182, 2128, 5013, 1859, 4677, 1725, 4337, 1684, 4105, 1721, 3921, 1796, 3792, 1869, 3657, 1932, 3477, 1994, 3245, 2009, 3044, 1932, 2953, 1809, 2932, 1632, 2923, 1392, 2915, 1175, 2911, 994, 2839, 886, 2755, 672, 2549, 555, 2366, 493, 2148, 571, 1741, 683, 1538, 754, 1290, 822, 1108, 822, 998, 695, 964, 516, 980, 302, 874, 139, 720, -41, 504, -114, 228, -103)
 
-[node name="Ghosts" type="Node" parent="."]
+[node name="Ghosts" type="Node" parent="game_view"]
 
-[node name="wave_CD" type="Timer" parent="."]
+[node name="wave_CD" type="Timer" parent="game_view"]
 wait_time = 5.0
 one_shot = true
 
-[connection signal="timeout" from="PathSpawner/SpawnCooldown" to="." method="_on_spawn_cooldown_timeout"]
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="UI" parent="Node2D" instance=ExtResource("7_2soho")]
+
+[connection signal="timeout" from="game_view/PathSpawner/SpawnCooldown" to="." method="_on_spawn_cooldown_timeout"]

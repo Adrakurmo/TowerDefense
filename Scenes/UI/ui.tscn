@@ -171,6 +171,7 @@ position = Vector2(106, 65)
 texture = ExtResource("4_fo61o")
 
 [node name="Button" type="Button" parent="CanvasLayer"]
+process_mode = 3
 visible = false
 offset_left = 755.0
 offset_top = 372.0

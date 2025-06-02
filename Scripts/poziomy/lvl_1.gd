@@ -1,25 +1,18 @@
 extends Node2D
 
-@onready var wave_cd: Timer = $wave_CD
+@onready var wave_cd: Timer = $game_view/wave_CD
+@onready var game_view: Node2D = $game_view
 
 @export var current_wave : int = -1
 
-var win = false
+func _ready() -> void:
+	SignalManager.level_finished.connect(stop_game)
+	
+func stop_game() -> void:
+	get_tree().paused = true
 
 func _on_spawn_cooldown_timeout() -> void:
 	if !wave_cd.is_stopped():
-		return
-		
-	if GameManager.player_health <= 0:
-		SignalManager.level_finished.emit()
-		return
-	#print(LevelManager.level_1.waves.size())
-	if LevelManager.level_1.waves.size() <= current_wave + 1 && GameManager.player_health > 0:
-		win = true
-		
-	if win:
-		SignalManager.level_finished.emit()
-		SignalManager.level_2_unlocked.emit()
 		return
 	
 	var path_inst = LevelManager.PATH_LVL_1.instantiate()
@@ -37,6 +30,8 @@ func _on_spawn_cooldown_timeout() -> void:
 			current_wave = i
 			wave_cd.start()
 			return
+		
+	SignalManager.level_finished.emit()
 			
 	
 

@@ -8,6 +8,8 @@ const PATH_LVL_2 = preload("res://Scenes/paths/path_lvl_2.tscn")
 var level_1 : Level
 var level_2 : Level
 
+@export var level_1_unlocked : bool = true
+@export var level_2_unlocked : bool = false
 #Each level = 10 waves
 
 func _ready() -> void:
@@ -23,14 +25,14 @@ func get_waves(wave_number : int) -> Array[Wave]:
 			return [
 			Wave.new({BLUE_SLIME : 10}),
 			Wave.new({BLUE_SLIME : 2}),
-			Wave.new({BLUE_SLIME : 14}),
-			Wave.new({BLUE_SLIME : 16}),
-			Wave.new({BLUE_SLIME : 18}),
-			Wave.new({BLUE_SLIME : 20, RED_SLIME : 10}),
-			Wave.new({BLUE_SLIME : 15, RED_SLIME : 20}),
-			Wave.new({BLUE_SLIME : 10, RED_SLIME : 30}),
-			Wave.new({BLUE_SLIME : 0, RED_SLIME : 40}),
-			Wave.new({BLUE_SLIME : 0, RED_SLIME : 55})
+			#Wave.new({BLUE_SLIME : 14}),
+			#Wave.new({BLUE_SLIME : 16}),
+			#Wave.new({BLUE_SLIME : 18}),
+			#Wave.new({BLUE_SLIME : 20, RED_SLIME : 10}),
+			#Wave.new({BLUE_SLIME : 15, RED_SLIME : 20}),
+			#Wave.new({BLUE_SLIME : 10, RED_SLIME : 30}),
+			#Wave.new({BLUE_SLIME : 0, RED_SLIME : 40}),
+			#Wave.new({BLUE_SLIME : 0, RED_SLIME : 55})
 			]
 		2:
 			return [

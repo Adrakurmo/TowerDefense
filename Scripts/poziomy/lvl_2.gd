@@ -4,6 +4,12 @@ extends Node2D
 
 @export var current_wave : int = -1
 
+func _ready() -> void:
+	SignalManager.level_finished.connect(stop_game)
+
+func stop_game() -> void:
+	get_tree().paused = true
+
 func _on_spawn_cooldown_timeout() -> void:
 	if !wave_cd.is_stopped():
 		return
@@ -23,7 +29,7 @@ func _on_spawn_cooldown_timeout() -> void:
 			current_wave = i
 			wave_cd.start()
 			return
-			
+	SignalManager.level_finished.emit()
 	
 
 	

@@ -29,6 +29,15 @@ func _ready() -> void:
 	_on_health_changed()
 	
 func coscos():
+	var _display_txt: String = "LOSE"
+	
+	if GameManager.player_health > 0:
+		_display_txt = "WIN"
+		LevelManager.level_2_unlocked = true
+	else:
+		_display_txt = "LOSE"
+	
+	button.text = _display_txt
 	button.visible = true
 
 func _load_shop() -> void:
@@ -85,5 +94,10 @@ func _on_shoppp_pressed() -> void:
 
 
 func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+	get_tree().paused = false
+	LevelManager.set_levels()
 	button.visible = false
+	if GameManager.player_health > 0: SignalManager.new_level_unlocked.emit()
+	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+
+	
