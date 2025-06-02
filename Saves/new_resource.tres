@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="GameSave" load_steps=2 format=3 uid="uid://54aexuhueme1"]
+
+[ext_resource type="Script" uid="uid://dk53qug4vis7m" path="res://Resources/GameSave.gd" id="1_ty3l1"]
+
+[resource]
+script = ExtResource("1_ty3l1")
+l1_unl = true
+l2_unl = false
+metadata/_custom_type_script = "uid://dk53qug4vis7m"

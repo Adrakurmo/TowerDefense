@@ -28,7 +28,7 @@ position = Vector2(-0.0327682, -0.975002)
 scale = Vector2(1.00218, 1.01653)
 
 [node name="SpawnCooldown" type="Timer" parent="game_view/PathSpawner"]
-wait_time = 0.1
+wait_time = 0.5
 autostart = true
 
 [node name="Towers" type="Node2D" parent="game_view"]

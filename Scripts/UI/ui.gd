@@ -34,6 +34,8 @@ func coscos():
 	if GameManager.player_health > 0:
 		_display_txt = "WIN"
 		LevelManager.level_2_unlocked = true
+		GameManager.CURRENT_GAME_REF.l2_unl = true
+		GameManager.CURRENT_GAME_REF.l1_unl = true
 	else:
 		_display_txt = "LOSE"
 	
