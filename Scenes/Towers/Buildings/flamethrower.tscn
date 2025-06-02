@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cfu6umomqcj0t"]
+[gd_scene load_steps=6 format=3 uid="uid://5s3yvaookl5g"]
 
 [ext_resource type="Script" uid="uid://dd0jqepf7pwik" path="res://Scripts/Towers/Buildings/flamethrower.gd" id="1_s6nni"]
 [ext_resource type="Texture2D" uid="uid://esdyfgudwn0s" path="res://Assets/Towers/Tower II.png" id="2_s6nni"]
+[ext_resource type="AudioStream" uid="uid://dwoqux7cvyjrj" path="res://Assets/Sound/towerI_shot.mp3" id="3_wcthe"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h7ovs"]
 radius = 367.005
@@ -66,6 +67,9 @@ autostart = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tower_menu_area"]
 shape = SubResource("RectangleShape2D_s6nni")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_wcthe")
 
 [connection signal="body_entered" from="Tower_range" to="." method="_on_tower_range_body_entered"]
 [connection signal="body_exited" from="Tower_range" to="." method="_on_tower_range_body_exited"]

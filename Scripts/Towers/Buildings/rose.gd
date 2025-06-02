@@ -48,3 +48,11 @@ func get_collison_points():
 	
 func get_sprite():
 	return sprite_2d.texture
+	
+func _on_tower_menu_area_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event.is_action_pressed("LPM"):
+		GameManager.UI_REF._open_upgrading_view(self)
+		
+func range_upgrade():
+	var curr_rad = tower_range.get_child(0).shape.radius
+	tower_range.get_child(0).shape.radius = curr_rad * 1.1

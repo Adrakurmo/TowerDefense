@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://6dj4alysytkk"]
+[gd_scene load_steps=6 format=3 uid="uid://6dj4alysytkk"]
 
 [ext_resource type="Script" uid="uid://bes5ixjb5oxuy" path="res://Scripts/Towers/Buildings/slime_destroyer.gd" id="1_h7ovs"]
 [ext_resource type="Texture2D" uid="uid://bwhyn21hneycr" path="res://Assets/Turrets/TowerI.png" id="1_wo0ue"]
+[ext_resource type="AudioStream" uid="uid://srrmdh5spw17" path="res://Assets/Sound/tower_shot.wav" id="3_hfu62"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h7ovs"]
 radius = 716.07
@@ -38,6 +39,9 @@ autostart = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tower_menu_area"]
 shape = SubResource("RectangleShape2D_h7ovs")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_hfu62")
 
 [connection signal="body_entered" from="Tower_range" to="." method="_on_tower_range_body_entered"]
 [connection signal="body_exited" from="Tower_range" to="." method="_on_tower_range_body_exited"]

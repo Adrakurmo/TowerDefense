@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://chjnc534chb7t"]
+[gd_scene load_steps=6 format=3 uid="uid://dbufw63d5mrm6"]
 
 [ext_resource type="Script" uid="uid://dppi4juya2f7s" path="res://Scripts/Towers/Buildings/rose.gd" id="1_t1mje"]
 [ext_resource type="Texture2D" uid="uid://un81noepspdi" path="res://Assets/Towers/TowerIII.png" id="2_t1mje"]
@@ -6,6 +6,9 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h7ovs"]
 radius = 570.317
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1mje"]
+size = Vector2(373.5, 321.5)
 
 [node name="Rose" type="StaticBody2D"]
 script = ExtResource("1_t1mje")
@@ -35,6 +38,13 @@ autostart = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_2futb")
 
+[node name="tower_menu_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tower_menu_area"]
+position = Vector2(18.25, 10.25)
+shape = SubResource("RectangleShape2D_t1mje")
+
 [connection signal="body_entered" from="Tower_range" to="." method="_on_tower_range_body_entered"]
 [connection signal="body_exited" from="Tower_range" to="." method="_on_tower_range_body_exited"]
 [connection signal="timeout" from="ReloadTime" to="." method="_on_reload_time_timeout"]
+[connection signal="input_event" from="tower_menu_area" to="." method="_on_tower_menu_area_input_event"]

@@ -13,6 +13,7 @@ const FLAMES = preload("res://Scenes/Towers/Bullets/flames.tscn")
 @onready var aim3: Marker2D = $Aim3
 @onready var aims: Array[Marker2D] = [$Aim1, $Aim2, $Aim3, $Aim4, $Aim5, $Aim6, $Aim7, $Aim8]
 @onready var reload_time: Timer = $ReloadTime
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 @export var cost : int  = -150
 @export var reaload_time_ : float = 0.05
@@ -40,8 +41,11 @@ func _on_tower_range_body_exited(body: Node2D) -> void:
 func _on_reload_time_timeout() -> void:
 	focused_target = BTB.get_focused_target(current_targets, focused_target, current_order)
 	if is_instance_valid(focused_target):
+		if !audio_stream_player_2d.playing:
+			audio_stream_player_2d.play()
 		for x in aims:
 			BTB.reload_turret(FLAMES, bullet_container, x, self, x.rotation)
+		
 		#BTB.reload_turret(FLAMES, bullet_container, aim1, self)
 		#BTB.reload_turret(FLAMES, bullet_container, aim2, self)
 		#BTB.reload_turret(FLAMES, bullet_container, aim3, self)

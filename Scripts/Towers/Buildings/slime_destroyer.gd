@@ -11,6 +11,7 @@ const SLIME_BULLET = preload("res://Scenes/Towers/Bullets/slime_bullet.tscn")
 @onready var collision_polygon_2d: CollisionPolygon2D = $CollisionPolygon2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var reload_time: Timer = $ReloadTime
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 @export var reaload_time_ : float = 0.2
 @export var cost : int  = -100
@@ -44,6 +45,7 @@ func _on_reload_time_timeout() -> void:
 	if is_instance_valid(focused_target):
 		look_at(focused_target.global_position)
 		BTB.reload_turret(SLIME_BULLET, bullet_container, aim, self)
+		audio_stream_player_2d.play()
 	
 func get_collison_points():
 	return 	collision_polygon_2d.polygon
